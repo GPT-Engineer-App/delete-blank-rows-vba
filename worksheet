@@ -1,0 +1,17 @@
+Sub DeleteBlankRows()
+    Dim ws As Worksheet
+    Dim rng As Range
+    Dim row As Range
+
+    ' Set the worksheet to the active sheet
+    Set ws = ActiveSheet
+
+    ' Loop through each row in the used range of the worksheet
+    For Each row In ws.UsedRange.Rows
+        ' Check if the entire row is empty
+        If Application.WorksheetFunction.CountA(row) = 0 Then
+            ' If the row is empty, delete it
+            row.Delete
+        End If
+    Next row
+End Sub
